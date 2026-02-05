@@ -102,18 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let totalPrice = 0;
-
+        // No logic for price calculation needed anymore
         cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            totalPrice += itemTotal;
-
             const cartItem = document.createElement('div');
             cartItem.classList.add('cart-item');
             cartItem.innerHTML = `
             <div class="cart-item-info">
                 <h4>${item.name}</h4>
-                <span>${item.quantity}x R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                <span>Quantidade: ${item.quantity}</span>
             </div>
             <div class="cart-item-controls">
                 <button class="qty-btn minus" data-id="${item.id}">-</button>
@@ -125,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsContainer.appendChild(cartItem);
         });
 
-        cartTotalElement.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+        cartTotalElement.textContent = `Sob Consulta`;
 
         // Add Event Listeners to dynamic buttons
         document.querySelectorAll('.qty-btn.plus').forEach(btn => {
@@ -164,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push({
                 id: product.id,
                 name: product.name,
-                price: parseFloat(product.price),
+                // Price removed from object
                 quantity: 1
             });
         }
@@ -173,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         openCart();
 
         // Optional: Toast notification (simple alert for now or custom)
-        // alert('Produto adicionado ao carrinho!'); 
+        // alert('Produto adicionado ao carrinho!');
     }
 
     // Remove Item
@@ -268,25 +264,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const city = document.getElementById('city').value;
         const obs = document.getElementById('observation').value;
 
-        let message = `*Olá! Gostaria de fazer um pedido:*\n\n`;
+        let message = `*Olá! Gostaria de fazer um orçamento:*\n\n`;
         message += `*PRODUTOS:*\n`;
 
-        let total = 0;
         cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            message += `- ${item.quantity}x ${item.name} (${formatCurrency(itemTotal)})\n`;
+            message += `- ${item.quantity}x ${item.name}\n`;
         });
 
-        message += `\n*TOTAL: ${formatCurrency(total)}*\n\n`;
-        message += `*DADOS DO CLIENTE:*\n`;
+        message += `\n*DADOS DO CLIENTE:*\n`;
         message += `Nome: ${name}\n`;
         message += `Telefone: ${phone}\n`;
         message += `Email: ${email}\n`;
         message += `Cidade: ${city}\n`;
         if (obs) message += `Obs: ${obs}`;
 
-        const phoneNumber = "5511999272632"; // Target WhatsApp number
+        const phoneNumber = "5511999272632"; // Updated WhatsApp number
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
