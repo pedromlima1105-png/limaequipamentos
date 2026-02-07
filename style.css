@@ -194,12 +194,16 @@ h4,
 }
 
 /* Hero Section */
+/* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    /* Changed from height to min-height */
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 120px;
+    /* Increased top padding for fixed navbar */
+    padding-bottom: 60px;
 }
 
 .hero-bg {
@@ -218,6 +222,8 @@ h4,
 .hero-content {
     color: var(--white);
     max-width: 800px;
+    z-index: 2;
+    /* Ensure content is above background */
 }
 
 .hero h1 {
@@ -231,6 +237,21 @@ h4,
     font-size: 1.25rem;
     margin-bottom: 40px;
     opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero {
+        padding-top: 100px;
+        text-align: center;
+    }
+
+    .hero-btns {
+        justify-content: center;
+    }
 }
 
 .hero-btns {
@@ -254,6 +275,20 @@ h4,
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
+}
+
+.about-text p {
+    color: var(--text-dark);
+    /* Ensure text is visible */
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 .about h2 {
