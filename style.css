@@ -415,74 +415,43 @@ h4,
 
 .product-card {
     background: var(--white);
+    padding: 40px 30px;
     border-radius: 20px;
-    overflow: hidden;
     box-shadow: var(--shadow);
     transition: 0.3s;
+    text-align: center;
     position: relative;
+    overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     height: 100%;
     /* Ensure full height in grid cell */
-    padding-bottom: 20px;
-    /* Add padding for the button area */
+    justify-content: flex-start;
+    /* Start content at top */
 }
 
 .product-card:hover {
     transform: translateY(-10px);
 }
 
-.product-image {
-    height: 200px;
-    background: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.product-image i {
-    font-size: 3rem;
-    color: var(--text-light);
-    opacity: 0.3;
-}
-
-.product-info {
-    padding: 20px;
-    flex-grow: 1;
-    /* Allow this to grow */
-    display: flex;
-    flex-direction: column;
-}
-
-.product-info h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+.product-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
     color: var(--text-dark);
 }
 
-.product-info p {
+.product-card p {
     color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     flex-grow: 1;
-    /* Push button down */
-}
-
-.product-price {
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 1.25rem;
-    margin-bottom: 15px;
-    display: block;
+    /* Allow description to grow to fill space */
 }
 
 .add-to-cart {
     width: 100%;
     margin-top: auto;
-    /* Ensure it stays at the bottom */
+    /* Push to bottom */
 }
 
 .product-card::before {
