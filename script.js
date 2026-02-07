@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTotalElement = document.getElementById('cart-total-price');
     const cartCountElement = document.querySelector('.cart-count');
     const checkoutBtn = document.getElementById('checkout-btn');
+    const continueShoppingBtn = document.getElementById('continue-shopping');
     const checkoutModal = document.getElementById('checkout-modal');
     const modalOverlay = document.getElementById('modal-overlay');
     const closeModalBtn = document.getElementById('close-modal');
@@ -238,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartOverlay.addEventListener('click', closeCart);
 
     checkoutBtn.addEventListener('click', openCheckout);
+    continueShoppingBtn.addEventListener('click', closeCart);
     closeModalBtn.addEventListener('click', closeCheckout);
     modalOverlay.addEventListener('click', closeCheckout);
 
