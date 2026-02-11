@@ -250,12 +250,19 @@ h4,
 
     .hero {
         padding-top: 110px;
-        text-align: left;
-        /* Align text left */
         justify-content: flex-start;
         /* Align content start */
         align-items: center;
         /* Keep vertical center */
+    }
+
+    .hero-content {
+        text-align: left;
+        /* Explicitly align content left */
+        margin-left: 0;
+        /* Override auto margins if any */
+        padding-left: 20px;
+        /* Ensure some padding */
     }
 
     .hero-btns {
