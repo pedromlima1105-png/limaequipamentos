@@ -250,16 +250,18 @@ h4,
 
     .hero {
         padding-top: 110px;
-        text-align: center;
+        text-align: left;
+        /* Align text left */
+        justify-content: flex-start;
+        /* Align content start */
         align-items: center;
-        /* Ensure centered vertically if possible */
-        justify-content: center;
+        /* Keep vertical center */
     }
 
     .hero-btns {
-        justify-content: center;
+        justify-content: flex-start;
+        /* Align buttons left */
         flex-direction: column;
-        /* Stack buttons on very small screens if needed, but keeping row for now */
         gap: 15px;
     }
 }
